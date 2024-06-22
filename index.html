@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>TaskLoop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <!-- Favicon links -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48x48.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/icon-512x512.png">
+</head>
+<body>
+    <div class="container">
+        <h1 class="logo"><img src="assets/icon-192x192.png" alt="Task Loop Logo" style="height: 192px;"></h1>
+        <div id="task-input-section">
+            <label for="task-input">Enter a task:</label>
+            <input type="text" id="task-input">
+            <button onclick="addTask()">Add Task</button>
+            <ul id="task-list"></ul>
+            <label>Select Interval:</label>
+            <div class="pill-selector">
+                <button onclick="selectInterval(5)">5 seconds</button>
+                <button onclick="selectInterval(30)">30 seconds</button>
+                <button class="selected" onclick="selectInterval(60)">1 minute</button>
+                <button onclick="selectInterval(120)">2 minutes</button>
+                <button onclick="selectInterval(300)">5 minutes</button>
+                <button onclick="selectInterval(600)">10 minutes</button>
+                <button onclick="selectInterval(1200)">20 minutes</button>
+            </div>
+            <button id="start-btn" class="start-btn">Start</button>
+        </div>
+        <div id="task-runner-section" style="display:none;">
+            <h2><span id="current-task-label">Current Task:</span> <span id="current-task"></span></h2>
+            <h3><span id="time-remaining-label">Time Remaining:</span> <span id="countdown"></span></h3>
+            <div class="controls">
+                <div>
+                    <button id="pause-resume-btn" onclick="pauseResumeTimer()">Pause</button>
+                    <button onclick="skipTask()">Skip Task</button>
+                </div>
+                <div>
+                    <button class="reset-btn" onclick="resetApp()">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
